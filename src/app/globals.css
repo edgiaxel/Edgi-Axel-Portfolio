@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --color-canvas: #090d16;
+  --color-surface-1: #0f172a;
+  --color-surface-2: #172136;
+  --color-surface-3: #1f2c47;
+  --color-border-subtle: #23324d;
+  --color-border-focus: #38bdf8;
+  --color-accent-cyan: #00f0ff;
+  --color-accent-sky: #38bdf8;
+  --color-accent-violet: #818cf8;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #94a3b8;
+  --color-text-muted: #64748b;
+  color-scheme: dark;
+}
+
+body {
+  background-color: #090d16;
+  color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Accessible focus visible utility */
+:focus-visible {
+  outline: 2px solid #38bdf8;
+  outline-offset: 2px;
+}
+
+/* Reduced motion baseline */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Print Stylesheet for A4 CV Output */
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  /* Hide navigation, skip link, footer, and interactive web elements */
+  header,
+  footer,
+  .no-print,
+  a[href="#main-content"] {
+    display: none !important;
+  }
+
+  /* Ensure text is dark and selectable */
+  .cv-document {
+    background: #ffffff !important;
+    color: #111827 !important;
+    border: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+  }
+
+  a {
+    color: #111827 !important;
+    text-decoration: underline !important;
+  }
+}
