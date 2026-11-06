@@ -47,34 +47,53 @@ body {
 @media print {
   @page {
     size: A4 portrait;
-    margin: 12mm 15mm;
+    margin: 8mm 10mm;
   }
 
+  html,
   body {
     background: #ffffff !important;
-    color: #111827 !important;
+    color: #0f172a !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
 
-  /* Hide navigation, skip link, footer, and interactive web elements */
-  header,
-  footer,
+  /* Hide website shell navigation, skip link, footer, and interactive web elements */
+  body > header,
+  body > footer,
+  nav,
   .no-print,
   a[href="#main-content"] {
     display: none !important;
   }
 
+  /* Ensure CV document header is always visible */
+  .cv-document header {
+    display: block !important;
+  }
+
   /* Ensure text is dark and selectable */
   .cv-document {
     background: #ffffff !important;
-    color: #111827 !important;
+    color: #0f172a !important;
     border: none !important;
     padding: 0 !important;
+    margin: 0 !important;
     max-width: 100% !important;
     box-shadow: none !important;
+    width: 100% !important;
+  }
+
+  /* Avoid breaking entries across pages */
+  .break-inside-avoid {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
   }
 
   a {
-    color: #111827 !important;
-    text-decoration: underline !important;
+    color: inherit !important;
+    text-decoration: none !important;
   }
 }

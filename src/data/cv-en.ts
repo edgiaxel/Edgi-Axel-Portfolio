@@ -1,5 +1,4 @@
 import { profileData } from "@/data/profile";
-import { experienceData, type ExperienceItem } from "@/data/experience";
 import { projectsData, type Project } from "@/data/projects";
 
 export interface CVSkillCategory {
@@ -12,7 +11,18 @@ export interface CVEducation {
   degree: string;
   period: string;
   gpa: string;
+  concentration?: string;
+  thesis?: string;
   details: string[];
+}
+
+export interface CVExperienceItem {
+  id: string;
+  role: string;
+  organization: string;
+  location: string;
+  period: string;
+  highlights: string[];
 }
 
 export interface CVContent {
@@ -30,7 +40,7 @@ export interface CVContent {
   educationTitle: string;
   education: CVEducation;
   experienceTitle: string;
-  experience: ExperienceItem[];
+  experience: CVExperienceItem[];
   selectedProjectsTitle: string;
   selectedProjects: Project[];
   skillsTitle: string;
@@ -69,8 +79,11 @@ export const cvEnData: CVContent = {
   education: {
     institution: "STMIK LIKMI, Bandung",
     degree: "Bachelor of Informatics / Software Engineering",
-    period: "September 2023 – Expected 2027",
+    period: "Sept 2023 - Expected 2027",
     gpa: "3.94 / 4.00",
+    concentration: "Mobile Apps and Software Engineering",
+    thesis:
+      "Undergraduate Thesis (In Progress): Comparative study of DQN, PPO, and A2C reinforcement learning algorithms in a custom turn-based card game environment.",
     details: [
       "Concentration: Mobile Apps and Software Engineering",
       "Current standing: Seventh semester",
@@ -78,7 +91,43 @@ export const cvEnData: CVContent = {
     ],
   },
   experienceTitle: "Experience",
-  experience: experienceData,
+  experience: [
+    {
+      id: "pos-indonesia",
+      role: "Assistant Account Manager Intern",
+      organization: "Pos Indonesia, Bandung Branch",
+      location: "Bandung, Indonesia",
+      period: "March 2026 - June 2026",
+      highlights: [
+        "Assisted account management operations through daily transaction data retrieval, document preparation, and spreadsheet organization.",
+        "Maintained and organized transaction records and supporting documentation using Excel and Google Sheets.",
+        "Developed a Python script to clean and transform CSV data, reducing repetitive manual data preparation and improving the efficiency of spreadsheet workflows.",
+        "Supported operational documentation and customer account administration.",
+      ],
+    },
+    {
+      id: "tutor-9to5",
+      role: "Extracurricular Mathematics Tutor",
+      organization: "9to5",
+      location: "Bandung, Indonesia",
+      period: "2024 - 2025",
+      highlights: [
+        "Taught elementary school students fundamental mathematical concepts and problem-solving techniques.",
+        "Prepared structured learning exercises, practice tests, and homework materials.",
+      ],
+    },
+    {
+      id: "board-game-master",
+      role: "Board Game Master",
+      organization: "Nakama Board Game Café",
+      location: "Bandung, Indonesia",
+      period: "June 2023 - August 2023",
+      highlights: [
+        "Introduced and explained board game mechanics and rules to customers.",
+        "Facilitated gameplay sessions and coordinated front-of-house customer service.",
+      ],
+    },
+  ],
   selectedProjectsTitle: "Selected Technical Projects",
   selectedProjects: selectedFeaturedProjects,
   skillsTitle: "Technical Competencies",
@@ -93,15 +142,15 @@ export const cvEnData: CVContent = {
     },
     {
       title: "Data & Storage",
-      skills: ["SQL", "PostgreSQL", "Supabase", "MySQL", "MariaDB", "MongoDB Atlas"],
+      skills: ["PostgreSQL", "Supabase", "MySQL", "MariaDB", "MongoDB Atlas", "SQL"],
     },
     {
       title: "AI & Machine Learning",
-      skills: ["PyTorch", "NumPy", "pandas", "scikit-learn", "Reinforcement Learning (DQN, PPO, A2C)", "Ollama", "Local LLMs"],
+      skills: ["PyTorch", "scikit-learn", "Pandas", "NumPy", "Reinforcement Learning (DQN, PPO, A2C)", "Ollama", "Local LLMs"],
     },
     {
       title: "Tools & Platforms",
-      skills: ["Git", "GitHub", "Vercel", "Render", "Cloudflare Tunnels", "Linux"],
+      skills: ["Git", "GitHub", "Linux", "Vercel", "Render", "Cloudflare Tunnels"],
     },
   ],
   leadershipTitle: "Leadership & Activities",
